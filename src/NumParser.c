@@ -16,7 +16,12 @@ int parseProduct();
 char * x;
 
 int parseFactor() {
-	return 0;
+	if(*x >= '0' && *x <= '9') {
+		return *x++ - '0';
+	} else {
+		printf("expected digit but found %c\n", *x);
+		return 0;
+	}
 }
 
 int parseSum() {
