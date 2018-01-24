@@ -10,11 +10,15 @@
 
 #include <Functions.h>
 
-bool startsWith(const char *pre, const char *str)
+_Bool startsWith(const char *restrict string, const char *restrict prefix)
 {
-    size_t lenpre = strlen(pre),
-           lenstr = strlen(str);
-    return lenstr < lenpre ? false : strncmp(pre, str, lenpre) == 0;
+    while(*prefix)
+    {
+        if(*prefix++ != *string++)
+            return 0;
+    }
+
+    return 1;
 }
 
 #endif /* PARSER_H_ */
